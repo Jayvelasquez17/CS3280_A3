@@ -39,14 +39,15 @@ namespace Assignment3
             this.testButton = new System.Windows.Forms.Button();
             this.testLabel2 = new System.Windows.Forms.Label();
             this.studentInfoBox = new System.Windows.Forms.GroupBox();
-            this.studentNameLabel = new System.Windows.Forms.Label();
-            this.nameInput = new System.Windows.Forms.TextBox();
             this.saveNameButton = new System.Windows.Forms.Button();
+            this.nameInput = new System.Windows.Forms.TextBox();
+            this.studentNameLabel = new System.Windows.Forms.Label();
             this.navBox = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.prevStudButton = new System.Windows.Forms.Button();
+            this.lastStudButton = new System.Windows.Forms.Button();
             this.nextStudButton = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.prevStudButton = new System.Windows.Forms.Button();
+            this.firstStudButton = new System.Windows.Forms.Button();
+            this.emptyNameError = new System.Windows.Forms.Label();
             this.countsBox.SuspendLayout();
             this.studentInfoBox.SuspendLayout();
             this.navBox.SuspendLayout();
@@ -61,7 +62,7 @@ namespace Assignment3
             this.countsBox.Controls.Add(this.noStudentsLabel);
             this.countsBox.Location = new System.Drawing.Point(13, 13);
             this.countsBox.Name = "countsBox";
-            this.countsBox.Size = new System.Drawing.Size(558, 158);
+            this.countsBox.Size = new System.Drawing.Size(580, 158);
             this.countsBox.TabIndex = 0;
             this.countsBox.TabStop = false;
             this.countsBox.Text = "Counts";
@@ -150,6 +151,23 @@ namespace Assignment3
             this.studentInfoBox.TabStop = false;
             this.studentInfoBox.Text = "Student Info";
             // 
+            // saveNameButton
+            // 
+            this.saveNameButton.Location = new System.Drawing.Point(407, 24);
+            this.saveNameButton.Name = "saveNameButton";
+            this.saveNameButton.Size = new System.Drawing.Size(116, 43);
+            this.saveNameButton.TabIndex = 2;
+            this.saveNameButton.Text = "Save Name";
+            this.saveNameButton.UseVisualStyleBackColor = true;
+            this.saveNameButton.Click += new System.EventHandler(this.saveNameButton_Click);
+            // 
+            // nameInput
+            // 
+            this.nameInput.Location = new System.Drawing.Point(118, 32);
+            this.nameInput.Name = "nameInput";
+            this.nameInput.Size = new System.Drawing.Size(283, 26);
+            this.nameInput.TabIndex = 1;
+            // 
             // studentNameLabel
             // 
             this.studentNameLabel.AutoSize = true;
@@ -159,53 +177,28 @@ namespace Assignment3
             this.studentNameLabel.TabIndex = 0;
             this.studentNameLabel.Text = "-";
             // 
-            // nameInput
-            // 
-            this.nameInput.Location = new System.Drawing.Point(118, 32);
-            this.nameInput.Name = "nameInput";
-            this.nameInput.Size = new System.Drawing.Size(283, 26);
-            this.nameInput.TabIndex = 1;
-            // 
-            // saveNameButton
-            // 
-            this.saveNameButton.Location = new System.Drawing.Point(407, 24);
-            this.saveNameButton.Name = "saveNameButton";
-            this.saveNameButton.Size = new System.Drawing.Size(116, 43);
-            this.saveNameButton.TabIndex = 2;
-            this.saveNameButton.Text = "Save Name";
-            this.saveNameButton.UseVisualStyleBackColor = true;
-            // 
             // navBox
             // 
-            this.navBox.Controls.Add(this.button5);
+            this.navBox.Controls.Add(this.lastStudButton);
             this.navBox.Controls.Add(this.nextStudButton);
             this.navBox.Controls.Add(this.prevStudButton);
-            this.navBox.Controls.Add(this.button2);
+            this.navBox.Controls.Add(this.firstStudButton);
             this.navBox.Location = new System.Drawing.Point(13, 243);
             this.navBox.Name = "navBox";
-            this.navBox.Size = new System.Drawing.Size(558, 72);
+            this.navBox.Size = new System.Drawing.Size(580, 72);
             this.navBox.TabIndex = 5;
             this.navBox.TabStop = false;
             this.navBox.Text = "Navigate";
             // 
-            // button2
+            // lastStudButton
             // 
-            this.button2.Location = new System.Drawing.Point(7, 26);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 40);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // prevStudButton
-            // 
-            this.prevStudButton.Location = new System.Drawing.Point(148, 25);
-            this.prevStudButton.Name = "prevStudButton";
-            this.prevStudButton.Size = new System.Drawing.Size(138, 40);
-            this.prevStudButton.TabIndex = 1;
-            this.prevStudButton.Text = "< Prev Student";
-            this.prevStudButton.UseVisualStyleBackColor = true;
-            this.prevStudButton.Click += new System.EventHandler(this.prevStudButton_Click);
+            this.lastStudButton.Location = new System.Drawing.Point(437, 26);
+            this.lastStudButton.Name = "lastStudButton";
+            this.lastStudButton.Size = new System.Drawing.Size(137, 40);
+            this.lastStudButton.TabIndex = 3;
+            this.lastStudButton.Text = "Last Student>>";
+            this.lastStudButton.UseVisualStyleBackColor = true;
+            this.lastStudButton.Click += new System.EventHandler(this.lastStudButton_Click);
             // 
             // nextStudButton
             // 
@@ -217,20 +210,42 @@ namespace Assignment3
             this.nextStudButton.UseVisualStyleBackColor = true;
             this.nextStudButton.Click += new System.EventHandler(this.nextStudButton_Click);
             // 
-            // button5
+            // prevStudButton
             // 
-            this.button5.Location = new System.Drawing.Point(437, 26);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(115, 40);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.prevStudButton.Location = new System.Drawing.Point(148, 25);
+            this.prevStudButton.Name = "prevStudButton";
+            this.prevStudButton.Size = new System.Drawing.Size(138, 40);
+            this.prevStudButton.TabIndex = 1;
+            this.prevStudButton.Text = "< Prev Student";
+            this.prevStudButton.UseVisualStyleBackColor = true;
+            this.prevStudButton.Click += new System.EventHandler(this.prevStudButton_Click);
+            // 
+            // firstStudButton
+            // 
+            this.firstStudButton.Location = new System.Drawing.Point(7, 26);
+            this.firstStudButton.Name = "firstStudButton";
+            this.firstStudButton.Size = new System.Drawing.Size(134, 40);
+            this.firstStudButton.TabIndex = 0;
+            this.firstStudButton.Text = "<<First Student";
+            this.firstStudButton.UseVisualStyleBackColor = true;
+            this.firstStudButton.Click += new System.EventHandler(this.firstStudButton_Click);
+            // 
+            // emptyNameError
+            // 
+            this.emptyNameError.AutoSize = true;
+            this.emptyNameError.Location = new System.Drawing.Point(549, 356);
+            this.emptyNameError.Name = "emptyNameError";
+            this.emptyNameError.Size = new System.Drawing.Size(159, 20);
+            this.emptyNameError.TabIndex = 6;
+            this.emptyNameError.Text = "Please enter a name!";
+            this.emptyNameError.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 450);
+            this.Controls.Add(this.emptyNameError);
             this.Controls.Add(this.navBox);
             this.Controls.Add(this.studentInfoBox);
             this.Controls.Add(this.testLabel2);
@@ -265,10 +280,11 @@ namespace Assignment3
         private System.Windows.Forms.Button saveNameButton;
         private System.Windows.Forms.TextBox nameInput;
         private System.Windows.Forms.GroupBox navBox;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button lastStudButton;
         private System.Windows.Forms.Button nextStudButton;
         private System.Windows.Forms.Button prevStudButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button firstStudButton;
+        private System.Windows.Forms.Label emptyNameError;
     }
 }
 

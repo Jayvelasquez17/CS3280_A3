@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,8 +31,9 @@ namespace Assignment3
 
             for (int i = 0; i < students.Length; i++)
             {
-                students[i] = "Student #" + (i);
+                students[i] = "Student #" + (i+1);
             }
+
 
             studentNameLabel.Text = students[p];
         }
@@ -44,15 +46,16 @@ namespace Assignment3
 
         private void nextStudButton_Click(object sender, EventArgs e)
         {
-            if (p < students.Length)
+            if (p == students.Length-1)
             {
-                p++;
                 studentNameLabel.Text = students[p];
             }
             else
             {
+                p++;
                 studentNameLabel.Text = students[p];
             }
+         
         }
 
         private void prevStudButton_Click(object sender, EventArgs e)
@@ -64,8 +67,33 @@ namespace Assignment3
             }
         }
 
+        private void firstStudButton_Click(object sender, EventArgs e)
+        {
+            p = 0;
+            studentNameLabel.Text = students[p];
+        }
 
+        private void lastStudButton_Click(object sender, EventArgs e)
+        {
+            p = students.Length;
+            studentNameLabel.Text = students[p - 1];
+        }
 
+        private void saveNameButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(nameInput.Text))
+            {
+                emptyNameError.Show();
+                Thread.Sleep(1000);
+                emptyNameError.Hide();
+            }
+            else
+            {
 
+                students[p] = nameInput.Text;
+                studentNameLabel.Update();
+                nameInput.Clear();
+            }
+        }
     }
 }
