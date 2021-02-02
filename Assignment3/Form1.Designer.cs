@@ -60,6 +60,9 @@ namespace Assignment3
             this.testAssignmentScore = new System.Windows.Forms.Label();
             this.testStudentName = new System.Windows.Forms.Label();
             this.countsErrorLbl = new System.Windows.Forms.Label();
+            this.resetButton = new System.Windows.Forms.Button();
+            this.scoreBox = new System.Windows.Forms.RichTextBox();
+            this.displayButton = new System.Windows.Forms.Button();
             this.countsBox.SuspendLayout();
             this.studentInfoBox.SuspendLayout();
             this.navBox.SuspendLayout();
@@ -136,7 +139,7 @@ namespace Assignment3
             // 
             // testButton
             // 
-            this.testButton.Location = new System.Drawing.Point(652, 516);
+            this.testButton.Location = new System.Drawing.Point(652, 502);
             this.testButton.Name = "testButton";
             this.testButton.Size = new System.Drawing.Size(104, 35);
             this.testButton.TabIndex = 2;
@@ -370,11 +373,42 @@ namespace Assignment3
             this.countsErrorLbl.Text = "Please enter valid input!";
             this.countsErrorLbl.Visible = false;
             // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(601, 95);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(155, 75);
+            this.resetButton.TabIndex = 10;
+            this.resetButton.Text = "Reset Scores";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
+            // scoreBox
+            // 
+            this.scoreBox.Location = new System.Drawing.Point(12, 587);
+            this.scoreBox.Name = "scoreBox";
+            this.scoreBox.Size = new System.Drawing.Size(828, 288);
+            this.scoreBox.TabIndex = 11;
+            this.scoreBox.Text = "";
+            // 
+            // displayButton
+            // 
+            this.displayButton.Location = new System.Drawing.Point(353, 544);
+            this.displayButton.Name = "displayButton";
+            this.displayButton.Size = new System.Drawing.Size(201, 37);
+            this.displayButton.TabIndex = 12;
+            this.displayButton.Text = "Display Scores";
+            this.displayButton.UseVisualStyleBackColor = true;
+            this.displayButton.Click += new System.EventHandler(this.displayButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 780);
+            this.ClientSize = new System.Drawing.Size(852, 887);
+            this.Controls.Add(this.displayButton);
+            this.Controls.Add(this.scoreBox);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.testStudentName);
             this.Controls.Add(this.testAssignmentScore);
             this.Controls.Add(this.enterAssignBox);
@@ -432,6 +466,9 @@ namespace Assignment3
         private System.Windows.Forms.Label testAssignmentScore;
         private System.Windows.Forms.Label testStudentName;
         private System.Windows.Forms.Label countsErrorLbl;
+        private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.RichTextBox scoreBox;
+        private System.Windows.Forms.Button displayButton;
     }
 }
 

@@ -16,7 +16,8 @@ namespace Assignment3
         string[] students;
         int[,] assignments;
         int p = 0;
-
+        int score = 0;
+        int assignmentNo;
 
 
         public Form1()
@@ -26,7 +27,7 @@ namespace Assignment3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(noStudInput.Text) || string.IsNullOrEmpty(noAssignInput.Text))
+            if (string.IsNullOrEmpty(noStudInput.Text) || string.IsNullOrEmpty(noAssignInput.Text) || Convert.ToInt32(noStudInput.Text) > 10 || Convert.ToInt32(noAssignInput.Text) > 99)
             {
                 countsErrorLbl.Show();
             }
@@ -41,19 +42,20 @@ namespace Assignment3
                     students[i] = "Student #" + (i + 1);
                 }
 
-
+                assignmentNo = (assignments.Length / students.Length);
                 studentNameLabel.Text = students[p];
-                assignmentNoLbl.Text = "(1 - " + (assignments.Length / students.Length) + "):";
+                assignmentNoLbl.Text = "(1 - " + assignmentNo + "):";
             }
         }
 
         private void testButton_Click(object sender, EventArgs e)
         {
-            testLabel.Text = students.Length.ToString();
-            testLabel2.Text = assignments.Length.ToString();
-            testAssignmentScore.Text = assignments[p, Convert.ToInt32(assignmentNoInput.Text)].ToString();
-            testStudentName.Text = students[p].ToString();
-
+        //    testLabel.Text = students.Length.ToString();
+        //    testLabel2.Text = assignments.Length.ToString();
+        //    //testAssignmentScore.Text = assignments[p, Convert.ToInt32(assignmentNoInput.Text)].ToString();
+        //    score = Convert.ToInt32(assignmentNoInput.Text);
+        //    testAssignmentScore.Text = assignments[p, score - 1].ToString();
+        //    testStudentName.Text = students[p].ToString();
         }
 
         private void nextStudButton_Click(object sender, EventArgs e)
@@ -124,14 +126,137 @@ namespace Assignment3
                     enterScoreError.Hide();
                     enterAssignmentNoError.Hide();
 
-                    assignments[p, Convert.ToInt32(assignmentNoInput.Text)] = Convert.ToInt32(assignmentScoreInput.Text);
+                    score = Convert.ToInt32(assignmentNoInput.Text);
+
+                    assignments[p, score - 1] = Convert.ToInt32(assignmentScoreInput.Text); 
+                    //assignments[p, Convert.ToInt32(assignmentNoInput.Text)] = Convert.ToInt32(assignmentScoreInput.Text);
+                    //assignmentNoInput.Clear();
+                    //assignmentScoreInput.Clear();
                 }
             }
 
         }
 
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            Array.Clear(students, 0, students.Length);
+            Array.Clear(assignments, 0, assignments.Length);
+            p = 0;
+            score = 0;
+            noStudInput.Clear();
+            noAssignInput.Clear();
+            assignmentNoInput.Clear();
+            assignmentScoreInput.Clear();
+            scoreBox.Clear();
+        }
+
+        private void printBox()
+        {
+            scoreBox.SelectionTabs = new int[] { 150, 25, 25};
+            string[] top = new string[assignmentNo + 3];
+
+            top[0] = "Student";
+
+            double avg = 0;
+
+            for (int i = 1; i < assignmentNo + 3; i++)
+            {
+                top[i] = "\t#" + i;
+
+            }
+
+            top[assignmentNo + 1] = "\tAVG";
+            top[assignmentNo + 2] = "\tGRADE";
 
 
+            for (int j = 0; j < top.Length; j++)
+            {
+                scoreBox.AppendText(top[j]);
+            }
 
+            scoreBox.AppendText(Environment.NewLine);
+
+            for (int l = 0; l < students.Length; l++)
+            {
+                scoreBox.AppendText(students[l] + "\t");
+                avg = 0;
+
+                for (int k = 0; k < assignmentNo; k++)
+                {
+                    scoreBox.AppendText(assignments[l, k].ToString() + "\t");
+
+                    avg += assignments[l, k];
+                }
+
+                
+                scoreBox.AppendText((avg / Convert.ToDouble(assignmentNo)).ToString("00.00") + "\t");
+
+                scoreBox.AppendText(findLetter(avg / Convert.ToDouble(assignmentNo)));
+
+                scoreBox.AppendText(Environment.NewLine);
+            }
+        }
+
+        string findLetter(double g)
+        {
+            if (g >= 93.00)
+            {
+                return "A";
+            }
+            if(g >= 90.00 && g < 92.90)
+            {
+                return "A-";
+            }
+            if (g >= 87.00 && g < 89.90)
+            {
+                return "B+";
+            }
+            if (g >= 83.00 && g < 86.90)
+            {
+                return "B";
+            }
+            if (g >= 80.00 && g < 82.90)
+            {
+                return "B-";
+            }
+            if (g >= 77.00 && g < 79.90)
+            {
+                return "C+";
+            }
+            if (g >= 73.00 && g < 76.90)
+            {
+                return "C";
+            }
+            if (g >= 70.00 && g < 72.90)
+            {
+                return "C-";
+            }
+            if (g >= 67.00 && g < 69.90)
+            {
+                return "D+";
+            }
+            if (g >= 63.00 && g < 66.90)
+            {
+                return "D";
+            }
+            if (g >= 60.00 && g < 62.90)
+            {
+                return "D-";
+            }
+            if (g < 60.00)
+            {
+                return "E";
+            }
+            else
+            {
+                return "NG";
+            }
+        }
+
+        private void displayButton_Click(object sender, EventArgs e)
+        {
+            scoreBox.Clear();
+            printBox();
+        }
     }
 }
