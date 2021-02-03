@@ -48,15 +48,15 @@ namespace Assignment3
             }
         }
 
-        private void testButton_Click(object sender, EventArgs e)
-        {
+        //private void testButton_Click(object sender, EventArgs e)
+        //{
         //    testLabel.Text = students.Length.ToString();
         //    testLabel2.Text = assignments.Length.ToString();
         //    //testAssignmentScore.Text = assignments[p, Convert.ToInt32(assignmentNoInput.Text)].ToString();
         //    score = Convert.ToInt32(assignmentNoInput.Text);
         //    testAssignmentScore.Text = assignments[p, score - 1].ToString();
         //    testStudentName.Text = students[p].ToString();
-        }
+        //}
 
         private void nextStudButton_Click(object sender, EventArgs e)
         {
@@ -74,17 +74,31 @@ namespace Assignment3
 
         private void prevStudButton_Click(object sender, EventArgs e)
         {
-            if (p > 0)
+            if (students == null)
             {
-                p--;
-                studentNameLabel.Text = students[p];
+                validCountError.Show();
+            }
+            else
+            {
+                if (p > 0)
+                {
+                    p--;
+                    studentNameLabel.Text = students[p];
+                }
             }
         }
 
         private void firstStudButton_Click(object sender, EventArgs e)
         {
-            p = 0;
-            studentNameLabel.Text = students[p];
+            if (students == null)
+            {
+                validCountError.Show();
+            }
+            else
+            {
+                p = 0;
+                studentNameLabel.Text = students[p];
+            }
         }
 
         private void lastStudButton_Click(object sender, EventArgs e)

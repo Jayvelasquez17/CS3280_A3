@@ -30,14 +30,12 @@ namespace Assignment3
         private void InitializeComponent()
         {
             this.countsBox = new System.Windows.Forms.GroupBox();
+            this.countsErrorLbl = new System.Windows.Forms.Label();
             this.submitCountsButton = new System.Windows.Forms.Button();
             this.noAssignInput = new System.Windows.Forms.TextBox();
             this.noStudInput = new System.Windows.Forms.TextBox();
             this.noAssignLabel = new System.Windows.Forms.Label();
             this.noStudentsLabel = new System.Windows.Forms.Label();
-            this.testLabel = new System.Windows.Forms.Label();
-            this.testButton = new System.Windows.Forms.Button();
-            this.testLabel2 = new System.Windows.Forms.Label();
             this.studentInfoBox = new System.Windows.Forms.GroupBox();
             this.saveNameButton = new System.Windows.Forms.Button();
             this.nameInput = new System.Windows.Forms.TextBox();
@@ -49,20 +47,18 @@ namespace Assignment3
             this.firstStudButton = new System.Windows.Forms.Button();
             this.emptyNameError = new System.Windows.Forms.Label();
             this.enterAssignBox = new System.Windows.Forms.GroupBox();
-            this.enterAssignmentNoLbl = new System.Windows.Forms.Label();
-            this.assignmentScoreLbl = new System.Windows.Forms.Label();
-            this.assignmentNoInput = new System.Windows.Forms.TextBox();
-            this.assignmentScoreInput = new System.Windows.Forms.TextBox();
-            this.saveScoreButton = new System.Windows.Forms.Button();
-            this.assignmentNoLbl = new System.Windows.Forms.Label();
-            this.enterScoreError = new System.Windows.Forms.Label();
             this.enterAssignmentNoError = new System.Windows.Forms.Label();
-            this.testAssignmentScore = new System.Windows.Forms.Label();
-            this.testStudentName = new System.Windows.Forms.Label();
-            this.countsErrorLbl = new System.Windows.Forms.Label();
+            this.enterScoreError = new System.Windows.Forms.Label();
+            this.assignmentNoLbl = new System.Windows.Forms.Label();
+            this.saveScoreButton = new System.Windows.Forms.Button();
+            this.assignmentScoreInput = new System.Windows.Forms.TextBox();
+            this.assignmentNoInput = new System.Windows.Forms.TextBox();
+            this.assignmentScoreLbl = new System.Windows.Forms.Label();
+            this.enterAssignmentNoLbl = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
             this.scoreBox = new System.Windows.Forms.RichTextBox();
             this.displayButton = new System.Windows.Forms.Button();
+            this.validCountError = new System.Windows.Forms.Label();
             this.countsBox.SuspendLayout();
             this.studentInfoBox.SuspendLayout();
             this.navBox.SuspendLayout();
@@ -83,6 +79,16 @@ namespace Assignment3
             this.countsBox.TabIndex = 0;
             this.countsBox.TabStop = false;
             this.countsBox.Text = "Counts";
+            // 
+            // countsErrorLbl
+            // 
+            this.countsErrorLbl.AutoSize = true;
+            this.countsErrorLbl.Location = new System.Drawing.Point(346, 123);
+            this.countsErrorLbl.Name = "countsErrorLbl";
+            this.countsErrorLbl.Size = new System.Drawing.Size(176, 20);
+            this.countsErrorLbl.TabIndex = 5;
+            this.countsErrorLbl.Text = "Please enter valid input!";
+            this.countsErrorLbl.Visible = false;
             // 
             // submitCountsButton
             // 
@@ -127,34 +133,6 @@ namespace Assignment3
             this.noStudentsLabel.Size = new System.Drawing.Size(172, 20);
             this.noStudentsLabel.TabIndex = 0;
             this.noStudentsLabel.Text = "Number of students:";
-            // 
-            // testLabel
-            // 
-            this.testLabel.AutoSize = true;
-            this.testLabel.Location = new System.Drawing.Point(648, 386);
-            this.testLabel.Name = "testLabel";
-            this.testLabel.Size = new System.Drawing.Size(14, 20);
-            this.testLabel.TabIndex = 1;
-            this.testLabel.Text = "-";
-            // 
-            // testButton
-            // 
-            this.testButton.Location = new System.Drawing.Point(652, 502);
-            this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(104, 35);
-            this.testButton.TabIndex = 2;
-            this.testButton.Text = "Test";
-            this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.testButton_Click);
-            // 
-            // testLabel2
-            // 
-            this.testLabel2.AutoSize = true;
-            this.testLabel2.Location = new System.Drawing.Point(742, 386);
-            this.testLabel2.Name = "testLabel2";
-            this.testLabel2.Size = new System.Drawing.Size(14, 20);
-            this.testLabel2.TabIndex = 3;
-            this.testLabel2.Text = "-";
             // 
             // studentInfoBox
             // 
@@ -274,56 +252,15 @@ namespace Assignment3
             this.enterAssignBox.TabStop = false;
             this.enterAssignBox.Text = "Student Info";
             // 
-            // enterAssignmentNoLbl
+            // enterAssignmentNoError
             // 
-            this.enterAssignmentNoLbl.AutoSize = true;
-            this.enterAssignmentNoLbl.Location = new System.Drawing.Point(86, 50);
-            this.enterAssignmentNoLbl.Name = "enterAssignmentNoLbl";
-            this.enterAssignmentNoLbl.Size = new System.Drawing.Size(196, 20);
-            this.enterAssignmentNoLbl.TabIndex = 0;
-            this.enterAssignmentNoLbl.Text = "Enter Assignment Number";
-            // 
-            // assignmentScoreLbl
-            // 
-            this.assignmentScoreLbl.AutoSize = true;
-            this.assignmentScoreLbl.Location = new System.Drawing.Point(203, 122);
-            this.assignmentScoreLbl.Name = "assignmentScoreLbl";
-            this.assignmentScoreLbl.Size = new System.Drawing.Size(143, 20);
-            this.assignmentScoreLbl.TabIndex = 1;
-            this.assignmentScoreLbl.Text = "Assignment Score:";
-            // 
-            // assignmentNoInput
-            // 
-            this.assignmentNoInput.Location = new System.Drawing.Point(352, 50);
-            this.assignmentNoInput.Name = "assignmentNoInput";
-            this.assignmentNoInput.Size = new System.Drawing.Size(100, 26);
-            this.assignmentNoInput.TabIndex = 2;
-            // 
-            // assignmentScoreInput
-            // 
-            this.assignmentScoreInput.Location = new System.Drawing.Point(352, 119);
-            this.assignmentScoreInput.Name = "assignmentScoreInput";
-            this.assignmentScoreInput.Size = new System.Drawing.Size(100, 26);
-            this.assignmentScoreInput.TabIndex = 3;
-            // 
-            // saveScoreButton
-            // 
-            this.saveScoreButton.Location = new System.Drawing.Point(458, 76);
-            this.saveScoreButton.Name = "saveScoreButton";
-            this.saveScoreButton.Size = new System.Drawing.Size(116, 46);
-            this.saveScoreButton.TabIndex = 4;
-            this.saveScoreButton.Text = "Save Score";
-            this.saveScoreButton.UseVisualStyleBackColor = true;
-            this.saveScoreButton.Click += new System.EventHandler(this.saveScoreButton_Click);
-            // 
-            // assignmentNoLbl
-            // 
-            this.assignmentNoLbl.AutoSize = true;
-            this.assignmentNoLbl.Location = new System.Drawing.Point(288, 50);
-            this.assignmentNoLbl.Name = "assignmentNoLbl";
-            this.assignmentNoLbl.Size = new System.Drawing.Size(14, 20);
-            this.assignmentNoLbl.TabIndex = 5;
-            this.assignmentNoLbl.Text = "-";
+            this.enterAssignmentNoError.AutoSize = true;
+            this.enterAssignmentNoError.Location = new System.Drawing.Point(259, 160);
+            this.enterAssignmentNoError.Name = "enterAssignmentNoError";
+            this.enterAssignmentNoError.Size = new System.Drawing.Size(315, 20);
+            this.enterAssignmentNoError.TabIndex = 7;
+            this.enterAssignmentNoError.Text = "Please enter a score for a valid assignment!";
+            this.enterAssignmentNoError.Visible = false;
             // 
             // enterScoreError
             // 
@@ -335,43 +272,56 @@ namespace Assignment3
             this.enterScoreError.Text = "Please enter a valid score!";
             this.enterScoreError.Visible = false;
             // 
-            // enterAssignmentNoError
+            // assignmentNoLbl
             // 
-            this.enterAssignmentNoError.AutoSize = true;
-            this.enterAssignmentNoError.Location = new System.Drawing.Point(259, 160);
-            this.enterAssignmentNoError.Name = "enterAssignmentNoError";
-            this.enterAssignmentNoError.Size = new System.Drawing.Size(315, 20);
-            this.enterAssignmentNoError.TabIndex = 7;
-            this.enterAssignmentNoError.Text = "Please enter a score for a valid assignment!";
-            this.enterAssignmentNoError.Visible = false;
+            this.assignmentNoLbl.AutoSize = true;
+            this.assignmentNoLbl.Location = new System.Drawing.Point(288, 50);
+            this.assignmentNoLbl.Name = "assignmentNoLbl";
+            this.assignmentNoLbl.Size = new System.Drawing.Size(14, 20);
+            this.assignmentNoLbl.TabIndex = 5;
+            this.assignmentNoLbl.Text = "-";
             // 
-            // testAssignmentScore
+            // saveScoreButton
             // 
-            this.testAssignmentScore.AutoSize = true;
-            this.testAssignmentScore.Location = new System.Drawing.Point(648, 455);
-            this.testAssignmentScore.Name = "testAssignmentScore";
-            this.testAssignmentScore.Size = new System.Drawing.Size(14, 20);
-            this.testAssignmentScore.TabIndex = 8;
-            this.testAssignmentScore.Text = "-";
+            this.saveScoreButton.Location = new System.Drawing.Point(458, 76);
+            this.saveScoreButton.Name = "saveScoreButton";
+            this.saveScoreButton.Size = new System.Drawing.Size(116, 46);
+            this.saveScoreButton.TabIndex = 4;
+            this.saveScoreButton.Text = "Save Score";
+            this.saveScoreButton.UseVisualStyleBackColor = true;
+            this.saveScoreButton.Click += new System.EventHandler(this.saveScoreButton_Click);
             // 
-            // testStudentName
+            // assignmentScoreInput
             // 
-            this.testStudentName.AutoSize = true;
-            this.testStudentName.Location = new System.Drawing.Point(742, 455);
-            this.testStudentName.Name = "testStudentName";
-            this.testStudentName.Size = new System.Drawing.Size(14, 20);
-            this.testStudentName.TabIndex = 9;
-            this.testStudentName.Text = "-";
+            this.assignmentScoreInput.Location = new System.Drawing.Point(352, 119);
+            this.assignmentScoreInput.Name = "assignmentScoreInput";
+            this.assignmentScoreInput.Size = new System.Drawing.Size(100, 26);
+            this.assignmentScoreInput.TabIndex = 3;
             // 
-            // countsErrorLbl
+            // assignmentNoInput
             // 
-            this.countsErrorLbl.AutoSize = true;
-            this.countsErrorLbl.Location = new System.Drawing.Point(346, 123);
-            this.countsErrorLbl.Name = "countsErrorLbl";
-            this.countsErrorLbl.Size = new System.Drawing.Size(176, 20);
-            this.countsErrorLbl.TabIndex = 5;
-            this.countsErrorLbl.Text = "Please enter valid input!";
-            this.countsErrorLbl.Visible = false;
+            this.assignmentNoInput.Location = new System.Drawing.Point(352, 50);
+            this.assignmentNoInput.Name = "assignmentNoInput";
+            this.assignmentNoInput.Size = new System.Drawing.Size(100, 26);
+            this.assignmentNoInput.TabIndex = 2;
+            // 
+            // assignmentScoreLbl
+            // 
+            this.assignmentScoreLbl.AutoSize = true;
+            this.assignmentScoreLbl.Location = new System.Drawing.Point(203, 122);
+            this.assignmentScoreLbl.Name = "assignmentScoreLbl";
+            this.assignmentScoreLbl.Size = new System.Drawing.Size(143, 20);
+            this.assignmentScoreLbl.TabIndex = 1;
+            this.assignmentScoreLbl.Text = "Assignment Score:";
+            // 
+            // enterAssignmentNoLbl
+            // 
+            this.enterAssignmentNoLbl.AutoSize = true;
+            this.enterAssignmentNoLbl.Location = new System.Drawing.Point(86, 50);
+            this.enterAssignmentNoLbl.Name = "enterAssignmentNoLbl";
+            this.enterAssignmentNoLbl.Size = new System.Drawing.Size(196, 20);
+            this.enterAssignmentNoLbl.TabIndex = 0;
+            this.enterAssignmentNoLbl.Text = "Enter Assignment Number";
             // 
             // resetButton
             // 
@@ -387,13 +337,13 @@ namespace Assignment3
             // 
             this.scoreBox.Location = new System.Drawing.Point(12, 587);
             this.scoreBox.Name = "scoreBox";
-            this.scoreBox.Size = new System.Drawing.Size(828, 288);
+            this.scoreBox.Size = new System.Drawing.Size(884, 288);
             this.scoreBox.TabIndex = 11;
             this.scoreBox.Text = "";
             // 
             // displayButton
             // 
-            this.displayButton.Location = new System.Drawing.Point(353, 544);
+            this.displayButton.Location = new System.Drawing.Point(386, 544);
             this.displayButton.Name = "displayButton";
             this.displayButton.Size = new System.Drawing.Size(201, 37);
             this.displayButton.TabIndex = 12;
@@ -401,23 +351,30 @@ namespace Assignment3
             this.displayButton.UseVisualStyleBackColor = true;
             this.displayButton.Click += new System.EventHandler(this.displayButton_Click);
             // 
+            // validCountError
+            // 
+            this.validCountError.AutoSize = true;
+            this.validCountError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validCountError.Location = new System.Drawing.Point(599, 212);
+            this.validCountError.Name = "validCountError";
+            this.validCountError.Size = new System.Drawing.Size(287, 20);
+            this.validCountError.TabIndex = 13;
+            this.validCountError.Text = "PLEASE ENTER A VALID COUNT!";
+            this.validCountError.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 887);
+            this.ClientSize = new System.Drawing.Size(908, 890);
+            this.Controls.Add(this.validCountError);
             this.Controls.Add(this.displayButton);
             this.Controls.Add(this.scoreBox);
             this.Controls.Add(this.resetButton);
-            this.Controls.Add(this.testStudentName);
-            this.Controls.Add(this.testAssignmentScore);
             this.Controls.Add(this.enterAssignBox);
             this.Controls.Add(this.emptyNameError);
             this.Controls.Add(this.navBox);
             this.Controls.Add(this.studentInfoBox);
-            this.Controls.Add(this.testLabel2);
-            this.Controls.Add(this.testButton);
-            this.Controls.Add(this.testLabel);
             this.Controls.Add(this.countsBox);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -441,9 +398,9 @@ namespace Assignment3
         private System.Windows.Forms.TextBox noStudInput;
         private System.Windows.Forms.Label noAssignLabel;
         private System.Windows.Forms.Label noStudentsLabel;
-        private System.Windows.Forms.Label testLabel;
-        private System.Windows.Forms.Button testButton;
-        private System.Windows.Forms.Label testLabel2;
+        //private System.Windows.Forms.Label testLabel;
+        //private System.Windows.Forms.Button testButton;
+        //private System.Windows.Forms.Label testLabel2;
         private System.Windows.Forms.GroupBox studentInfoBox;
         private System.Windows.Forms.Label studentNameLabel;
         private System.Windows.Forms.Button saveNameButton;
@@ -463,12 +420,13 @@ namespace Assignment3
         private System.Windows.Forms.Label assignmentNoLbl;
         private System.Windows.Forms.Label enterScoreError;
         private System.Windows.Forms.Label enterAssignmentNoError;
-        private System.Windows.Forms.Label testAssignmentScore;
-        private System.Windows.Forms.Label testStudentName;
+        //private System.Windows.Forms.Label testAssignmentScore;
+        //private System.Windows.Forms.Label testStudentName;
         private System.Windows.Forms.Label countsErrorLbl;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.RichTextBox scoreBox;
         private System.Windows.Forms.Button displayButton;
+        private System.Windows.Forms.Label validCountError;
     }
 }
 
