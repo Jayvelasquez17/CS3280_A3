@@ -43,7 +43,7 @@ namespace Assignment3
         {
             //Checks to make sure student and assignment textboxes are not empty
             //Also checks to make sure max students is 10 and max assignments is 99
-            if (string.IsNullOrEmpty(noStudInput.Text) || string.IsNullOrEmpty(noAssignInput.Text) || Convert.ToInt32(noStudInput.Text) > 10 || Convert.ToInt32(noAssignInput.Text) > 99)
+            if (string.IsNullOrEmpty(noStudInput.Text) || string.IsNullOrEmpty(noAssignInput.Text) || Convert.ToInt32(noStudInput.Text) > 10 || Convert.ToInt32(noAssignInput.Text) > 99 || Convert.ToInt32(noStudInput.Text) == 0 || Convert.ToInt32(noAssignInput.Text) == 0)
             {
                 //Shows error label
                 countsErrorLbl.Show();
